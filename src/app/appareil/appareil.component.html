@@ -1,0 +1,6 @@
+<li class="list-group-item">
+    <div style="width: 1vw; height: 1vw;"
+        [style.background]="appareilStatus === 'éteint-e' ? 'red' : 'green'"></div>
+    <h4 [ngClass]="appareilStatus === 'allumé-e' ? 'text-success' : 'text-danger'">Appareil : {{ appareilName }} -- Statut : {{ appareilStatus }}</h4>
+    <input type="text" class="form-control" [(ngModel)]="appareilName">
+</li>
