@@ -11,11 +11,13 @@
   <div class="row">
     <div class="col">
       <h2 class="my-3">Mes Appareils</h2>
-      <p>Dernière mise à jour : {{ lastUpdate | async | date: 'EEE dd MMM y, HH:mm:ss' }}</p>
+      <p>Dernière mise à jour : {{ lastUpdate | date: 'EEE dd MMM y, HH:mm:ss' }}</p>
       <ul class="list-group">
-        <app-appareil *ngFor="let appareil of appareils"
+        <app-appareil *ngFor="let appareil of appareils, let i = index"
           [appareilName]="appareil.name"
-          [appareilStatus]="appareil.status"></app-appareil>
+          [appareilStatus]="appareil.status"
+          [index]="i"
+          class="my-2"></app-appareil>
       </ul>
       <button class="btn btn-success my-3 mx-3" 
         [disabled]="!isAuth" 

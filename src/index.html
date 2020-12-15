@@ -6,6 +6,36 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style> 
+    .custom-control-input:focus ~  
+  .custom-control-label::before { 
+        /* box shadow is blue by default 
+but we do not want any shadow hence we have set  
+all the values as 0 */ 
+        box-shadow: 
+          0 0 0 0rem rgba(0, 0, 0, 0) !important; 
+    } 
+
+    /*sets the background color of 
+  switch to violet when it is checked*/ 
+    .custom-control-input:checked ~  
+  .custom-control-label::before { 
+        background-color:#28a745 !important; 
+        border-color: #28a745 !important;
+    } 
+
+    /*sets the border color of switch 
+  to violet when it is not checked*/ 
+    .custom-control-input:not(:checked) ~ .custom-control-label::before { 
+        background-color:#dc3545 !important; 
+        border-color:#dc3545 !important;
+    } 
+
+    /* Change la couleur du switch quand il n'est pas checked */
+    .custom-switch .custom-control-label::after{
+      background-color: #ffffff !important;
+    }
+</style> 
 </head>
 <body>
   <app-root></app-root>

@@ -1,6 +1,14 @@
-<li class="list-group-item">
-    <div style="width: 1vw; height: 1vw;"
-        [style.background]="appareilStatus === 'éteint-e' ? 'red' : 'green'"></div>
+<li [ngClass]="{'list-group-item': true, 'border-danger': appareilStatus === 'éteint-e', 'border-success': appareilStatus === 'allumé-e'}">
+    <!-- <div style="width: 1vw; height: 1vw; float: right;"
+        class="mx-1 my-3"
+        [style.background]="appareilStatus === 'éteint-e' ? 'red' : 'green'"></div> -->
+        <div class="custom-control custom-switch float-right my-2">
+            <input type="checkbox" 
+                (click)="onSwitch()" 
+                [checked]="appareilStatus === 'allumé-e'" 
+                [ngClass]="{'custom-control-input': true, 'bg-danger': appareilStatus === 'éteint-e', 'bg-success': appareilStatus === 'allumé-e'}"
+                id="customSwitch{{ index }}">
+            <label class="custom-control-label" for="customSwitch{{ index }}">On/Off</label>
+        </div>
     <h4 [ngClass]="appareilStatus === 'allumé-e' ? 'text-success' : 'text-danger'">Appareil : {{ appareilName }} -- Statut : {{ appareilStatus }}</h4>
-    <input type="text" class="form-control" [(ngModel)]="appareilName">
 </li>
